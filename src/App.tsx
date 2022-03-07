@@ -1,26 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-dom';
+import Auth from './layouts/Auth';
+import Dashboard from './layouts/Dashboard';
+import Helper from './utils/Helper';
 
-function App() {
+type Props = {};
+
+const App: React.FC<Props> = () => {
+    const token = localStorage.getItem('authToken')
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+		<div className='font-poppins'>
+			<Router>
+				<Routes>
+					<Route path='/auth/*' element={<Auth />} />
+					<Route path='/dashboard/*' element={<Dashboard />} />
+					{token?
+					Helper.expiredSession(token)?
+					<Route path='*' element={<Navigate replace to='/auth' />} />
+					:
+					<Route path='*' element={<Navigate replace to='/dashboard' />} />
+					:
+					<Route path='*' element={<Navigate replace to='/auth' />} />
+					}
+					{/* <Route path='*' element={<Navigate replace to='/' />} /> */}
+				</Routes>
+			</Router>
+		</div>
+	)
 }
 
 export default App;
