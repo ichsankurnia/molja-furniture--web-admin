@@ -1,7 +1,9 @@
 import axios from "axios";
 
 // export const baseURL = "http://localhost:2323"                          // {Local}
-export const baseURL = "https://apitest.goes2nobel.com"                          // {Production}
+// export const baseURL = "http://192.168.0.41:2323"                          // {Local}
+// export const baseURL = "https://apitest.goes2nobel.com"                          // {Production}
+export const baseURL = "https://api.moljafurniture.com"                          // {Production}
 
 
 export interface LoginPayload {
