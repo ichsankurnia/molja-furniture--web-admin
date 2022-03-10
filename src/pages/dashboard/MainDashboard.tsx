@@ -18,7 +18,7 @@ const MainDashboard: React.FC<Props> = () => {
                 <div className="bg-white px-5 py-6 rounded-bl-lg rounded-br-lg flex flex-col md:flex-row justify-between">
                     <p>You are logged in!</p>
                     <div className='mt-5 md:mt-0'>
-                        <p>Last login :</p>
+                        <p>Login time:</p>
                         <p>{moment(user?.last_login_on).format('yyyy-MM-DD HH:mm:ss')}</p>
                     </div>
                 </div>

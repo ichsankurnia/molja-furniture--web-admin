@@ -81,7 +81,7 @@ const AboutUs: React.FC<Props> = () => {
 
                 <div className='w-full bg-gray-700 rounded-lg shadow-xl p-5 md:p-6'>
                     <div className='flex items-center justify-between text-white md:px-8 pt-3 pb-8'>
-                        <h2 className='font-semibold'>Manage Company Description (About Us)</h2>
+                        <h2 className='font-semibold w-[75%] md:w-max'>Manage Company Profile (About Us)</h2>
                         <i className="ri-edit-box-line text-2xl hover:text-primary focus:ring-2 focus:ring-offset-2 focus:ring-primary cursor-pointer" onClick={() => setIsUpdate(true)}></i>
                     </div>
                     <form onSubmit={onSubmitForm}>

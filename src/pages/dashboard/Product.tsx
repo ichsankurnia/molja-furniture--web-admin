@@ -192,7 +192,7 @@ const Product: React.FC<Props> = () => {
                                     <LazyLoadImage effect='blur' src={data?.images[0]} alt='' className='h-44 mb-8' />
                                     <h3>{data.name}</h3>
                                     <div className='flex items-center justify-between mt-5 w-full'>
-                                        <button className="btn-secondary flex items-center" onClick={() => handleDetailProduct(data)}>
+                                        <button className="btn-secondary flex items-center bg-dark text-white" onClick={() => handleDetailProduct(data)}>
                                             <i className="ri-picture-in-picture-exit-line scale-125"></i>
                                         </button>
                                         <div className='flex items-center space-x-2'>
