@@ -9,7 +9,7 @@
         @apply w-full mt-1 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-primary focus:border-primary
     }
     .label-form{
-        @apply block mb-2 text-sm font-medium text-gray-300
+        @apply block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300
     }
     .input-form{
         @apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white
