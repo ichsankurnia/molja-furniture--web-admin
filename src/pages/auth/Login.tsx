@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import moment from 'moment';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { useNavigate } from 'react-router-dom';
 import ErrorField from '../../components/ErrorField';
@@ -14,41 +15,52 @@ const Login: React.FC<Props> = () => {
     const navigate = useNavigate()
 
     const {
-		register,
-		formState: { errors },
-		handleSubmit,
-	} = useForm<LoginPayload>({ criteriaMode: "all" });
+        register,
+        formState: { errors },
+        handleSubmit,
+    } = useForm<LoginPayload>({ criteriaMode: "all" });
 
     useEffect(() => {
         localStorage.clear()
     }, [])
 
-	const onSubmitForm: SubmitHandler<LoginPayload> = async (data) => {
+    const onSubmitForm: SubmitHandler<LoginPayload> = async (data) => {
+        // const res = await loginAPI(data as LoginPayload )
+        // console.log("Login :", res)
+        // if(res.data){
+        //     if(res.data.code === 0){
+        //         const data = res.data.data
+        //         const dataUser = {
+        //             id: data.role_id,
+        //             username: data.username,
+        //             fullname: data.fullname,
+        //             email: data.email,
+        //             role_id: data.role_id,
+        //             last_login_on: data.last_login_on
+        //         }
 
-        const res = await loginAPI(data as LoginPayload )
-        console.log("Login :", res)
-        if(res.data){
-            if(res.data.code === 0){
-                const data = res.data.data
-                const dataUser = {
-                    id: data.role_id,
-                    username: data.username,
-                    fullname: data.fullname,
-                    email: data.email,
-                    role_id: data.role_id,
-                    last_login_on: data.last_login_on
-                }
+        //         localStorage.setItem('dataUser', JSON.stringify(dataUser))
+        //         localStorage.setItem('authToken', data.token)
+        //         navigate('/dashboard', {replace: true})
+        //     }else{
+        //         toast.error(res.data.message)
+        //     }
+        // }else{
+        //     toast.error('Connection timeout..')
+        // }
 
-                localStorage.setItem('dataUser', JSON.stringify(dataUser))
-                localStorage.setItem('authToken', data.token)
-                navigate('/dashboard', {replace: true})
-            }else{
-                toast.error(res.data.message)
-            }
-        }else{
-            toast.error('Connection timeout..')
+        const dataUser = {
+            id: 1,
+            username: data.username,
+            fullname: 'Administrator',
+            email: `${data.username}@mail.copm`,
+            role_id: 1,
+            last_login_on: moment().format('yyyy-MM-DD HH:mm:ss')
         }
-	}
+        localStorage.setItem('dataUser', JSON.stringify(dataUser))
+        localStorage.setItem('authToken', '[its gonna be jwt token from login api]')
+        navigate('/dashboard', { replace: true })
+    }
 
 
     return (
